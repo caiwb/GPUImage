@@ -888,7 +888,7 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
         CFRetain(sampleBuffer);
         runAsynchronouslyOnVideoProcessingQueue(^{
             //Feature Detection Hook.
-            if (self.delegate)
+            if ([self.delegate respondsToSelector:@selector(willOutputSampleBuffer:)])
             {
                 [self.delegate willOutputSampleBuffer:sampleBuffer];
             }
